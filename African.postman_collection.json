@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "0ae4cbee-67ca-4955-8699-94086999f512",
+		"name": "African",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[NUMBERs] Chech Single Number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/number/27831234567_DELETED_fkdjhsfkjh",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"number",
+						"27831234567_DELETED_fkdjhsfkjh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[NUMBERs] Get Numbers By Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/numbers/CORRECTED",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"numbers",
+						"CORRECTED"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[NUMBERs] Load Number From File",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"path\": \"/Users/mgiuff/mycode/numbers/South_African_Mobile_Numbers.csv\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/numbers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"numbers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
