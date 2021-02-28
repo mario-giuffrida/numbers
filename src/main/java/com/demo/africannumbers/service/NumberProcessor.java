@@ -25,7 +25,6 @@ import com.opencsv.CSVReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -34,9 +33,9 @@ public class NumberProcessor {
   private static final Logger LOGGER = LoggerFactory.getLogger(NumberProcessor.class);
   private static final String ID = "id";
 
-  private ExecutorService executor = Executors.newSingleThreadExecutor();
-  private List<Verifier> registeredVerifiers = new ArrayList<>();
-  private List<Corrector> registeredCorrectors = new ArrayList<>();
+  private final ExecutorService executor = Executors.newSingleThreadExecutor();
+  private final List<Verifier> registeredVerifiers = new ArrayList<>();
+  private final List<Corrector> registeredCorrectors = new ArrayList<>();
 
   private final MobileNumberRepository repository;
 

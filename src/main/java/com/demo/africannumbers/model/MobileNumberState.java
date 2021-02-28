@@ -4,5 +4,5 @@ public enum MobileNumberState {
   INITIAL,
   ACCEPTABLE,
   CORRECTED,
-  INCORRECT;
+  INCORRECT
 }

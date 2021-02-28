@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LenghtVerifier implements Verifier {
+public class LengthVerifier implements Verifier {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(LenghtVerifier.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(LengthVerifier.class);
   private static final int SIZE = 11;
 
   @Autowired
-  public LenghtVerifier(NumberProcessor processor) {
+  public LengthVerifier(NumberProcessor processor) {
     processor.registerVerifier(this);
   }
 

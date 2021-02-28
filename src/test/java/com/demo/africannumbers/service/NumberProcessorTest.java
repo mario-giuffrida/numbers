@@ -4,17 +4,13 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.net.URISyntaxException;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import com.demo.africannumbers.correctors.Corrector;
-import com.demo.africannumbers.correctors.DeleteRemoverCorrector;
 import com.demo.africannumbers.exceptions.InvalidStateFilterException;
 import com.demo.africannumbers.model.MobileNumber;
 import com.demo.africannumbers.model.MobileNumberState;
 import com.demo.africannumbers.persistence.MobileNumberRepository;
-import com.demo.africannumbers.verifiers.LenghtVerifier;
-import com.demo.africannumbers.verifiers.PrefixVerifier;
 import com.demo.africannumbers.verifiers.Verifier;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -60,7 +55,7 @@ class NumberProcessorTest {
   }
 
   @Test
-  void loadNumbers_whenReader_countIsCorrect() throws IOException, URISyntaxException, InterruptedException, ExecutionException {
+  void loadNumbers_whenReader_countIsCorrect() throws IOException, InterruptedException, ExecutionException {
     //GIVEN
     when(verifier.valid(any())).thenReturn(true);
     String numbers = "id,sms_phone\n" +
@@ -140,7 +135,7 @@ class NumberProcessorTest {
   }
 
   @Test
-  void retrieveNumbersByState_whenStateIsCorrect_listIsReturned() throws IOException, URISyntaxException, InterruptedException, ExecutionException, InvalidStateFilterException {
+  void retrieveNumbersByState_whenStateIsCorrect_listIsReturned() throws InvalidStateFilterException {
     //WHEN
     processor.retrieveNumbersByState("INCORRECT");
 
@@ -150,7 +145,7 @@ class NumberProcessorTest {
 
 
   @Test
-  void retrieveNumbersByState_whenStateIsIncorrect_exceptionIsThrown() throws IOException, URISyntaxException, InterruptedException, ExecutionException, InvalidStateFilterException {
+  void retrieveNumbersByState_whenStateIsIncorrect_exceptionIsThrown() {
     //THEN
     assertThrows(InvalidStateFilterException.class, () -> processor.retrieveNumbersByState("it-does-not-exist"));
   }

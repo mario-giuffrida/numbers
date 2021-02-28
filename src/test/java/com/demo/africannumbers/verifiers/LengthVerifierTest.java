@@ -1,6 +1,5 @@
 package com.demo.africannumbers.verifiers;
 
-import com.demo.africannumbers.correctors.DeleteRemoverCorrector;
 import com.demo.africannumbers.model.MobileNumber;
 import com.demo.africannumbers.service.NumberProcessor;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,18 +8,18 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
-class LenghtVerifierTest {
+class LengthVerifierTest {
 
-  LenghtVerifier verifier;
+  LengthVerifier verifier;
   NumberProcessor processor = mock(NumberProcessor.class);
 
   @BeforeEach
   void setup(){
-    verifier = new LenghtVerifier(processor);
+    verifier = new LengthVerifier(processor);
   }
 
   @Test
-  void valid_whenNumberHasCorrectLenght_returnTrue() {
+  void valid_whenNumberHasCorrectLength_returnTrue() {
     //GIVEN
     MobileNumber number = new MobileNumber("idFromFile", "12345678901");
 
@@ -32,7 +31,7 @@ class LenghtVerifierTest {
   }
 
   @Test
-  void valid_whenNumberHasIncorrectLenght_returnFalse() {
+  void valid_whenNumberHasIncorrectLength_returnFalse() {
     //GIVEN
     MobileNumber number = new MobileNumber("idFromFile", "12345678901abcd");
 
